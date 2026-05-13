@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Милану 10 — День рождения на льду и скорости</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Unbounded:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="cover" aria-label="Праздничная шапка">
+      <img class="cover__image" src="header.png" alt="Праздничная шапка" />
+    </header>
+    <div class="page">
+      <header class="hero">
+        <div class="hero__content">
+          <h1>Милан</h1>
+          <p class="hero__lead">
+            приглашает друзей отпраздновать его день рождения.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--ghost" href="milan-birthday.ics" download>
+              Добавить в календарь
+            </a>
+            <p class="hero__note">26 мая, 15:00–18:30 — картинг-клуб</p>
+          </div>
+        </div>
+        <div class="hero__badge">
+          <span>26</span>
+          <span>мая</span>
+        </div>
+      </header>
+
+      <main>
+        <section id="details" class="details">
+          <div class="detail-card">
+            <h2>Когда</h2>
+            <p class="detail-card__big">26 мая</p>
+            <p>15:00–18:30</p>
+          </div>
+          <div class="detail-card">
+            <h2>Где</h2>
+            <p class="detail-card__big">MIKS Karting</p>
+            <p>Москва, ул. Шарикоподшипниковская, 13, стр. 41</p>
+            <p class="detail-card__note">Встречаемся на ресепшене</p>
+          </div>
+          <div class="detail-card">
+            <h2>Повод</h2>
+            <p class="detail-card__big">Милану 10</p>
+            <p>Будет шумно, весело и быстро</p>
+          </div>
+        </section>
+
+        <section class="timeline">
+          <div class="timeline__content">
+            <h2>Как пройдет праздник</h2>
+            <div class="timeline__track" aria-label="Расписание праздника">
+              <div class="timeline__item">
+                <span>15:00</span>
+                <h3>Сбор</h3>
+                <p>Встречаемся и готовимся к старту.</p>
+              </div>
+              <div class="timeline__item">
+                <span>15:15</span>
+                <h3>Инструктаж</h3>
+                <p>Коротко о правилах и безопасности на трассе.</p>
+              </div>
+              <div class="timeline__item">
+                <span>15:30</span>
+                <h3>Два заезда по 10 минут</h3>
+                <p>Настоящие гонки и первые результаты.</p>
+              </div>
+              <div class="timeline__item">
+                <span>16:00</span>
+                <h3>Перекус + VR</h3>
+                <p>Отдыхаем и играем в VR.</p>
+              </div>
+              <div class="timeline__item">
+                <span>17:30</span>
+                <h3>Два заезда по 10 минут</h3>
+                <p>Еще больше скорости и драйва.</p>
+              </div>
+              <div class="timeline__item">
+                <span>18:00</span>
+                <h3>Торт</h3>
+                <p>Поздравления и сладкое завершение праздника.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="highlight">
+          <div class="highlight__panel">
+            <h2>Будь в команде Милана</h2>
+            <p>
+              Надень удобную одежду и прихвати хорошее настроение. Мы
+              приготовили драйв и сюрпризы.
+            </p>
+            <div class="highlight__date">
+              <span>26.05</span>
+              <span>15:00–18:30</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="location">
+          <div class="location__header">
+            <h2>Как добраться</h2>
+            <p>
+              Картинг находится в здании напротив. Вход через КПП, назовите кодовое
+              слово: «Я в картинг-центр МИКС».
+            </p>
+            <div class="location__map">
+              <iframe
+                class="location__frame"
+                src="https://yandex.ru/map-widget/v1/?ll=37.683758%2C55.719751&z=16&pt=37.683758%2C55.719751%2Cpm2rdm"
+                title="Карта проезда к MIKS Karting"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+              <div class="location__actions">
+                <a
+                  class="btn"
+                  href="yandexnavi://build_route_on_map?lat_to=55.719751&lon_to=37.683758"
+                >
+                  Открыть в навигаторе
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="location__grid">
+            <div class="location__card">
+              <h3>От м. Дубровка</h3>
+              <p>
+                Пройдите около 300 м по ул. Шарикоподшипниковская в сторону ТТК,
+                затем налево на 2-ю ул. Машиностроения. Дальше к КПП «ЕПК Москва» и
+                прямо до входа.
+              </p>
+            </div>
+            <div class="location__card">
+              <h3>От м. Волгоградский проспект</h3>
+              <p>
+                Выходы 1–2 на ул. Новоостаповская. Идите около 450 м до КПП «ЕПК
+                Москва», затем прямо, вход будет справа.
+              </p>
+            </div>
+            <div class="location__card">
+              <h3>На машине</h3>
+              <p>Въезд со 2-й ул. Машиностроения. Парковка платная.</p>
+            </div>
+          </div>
+          <div class="access">
+            <div class="access__text">
+              <h3>Пропуск на въезд</h3>
+              <p>
+                Для въезда на территорию может понадобиться QR-код. Покажите его
+                на КПП при въезде.
+              </p>
+            </div>
+            <a class="access__qr-link" href="qr.html">
+              <img class="access__qr" src="qr.png" alt="QR-код для пропуска" />
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Ждем тебя, чтобы отметить вместе!</p>
+      </footer>
+    </div>
+  </body>
+  <script>
+    const coverImage = document.querySelector(".cover__image");
+    const setCoverHeight = () => {
+      if (!coverImage) return;
+      const height = coverImage.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--cover-height", `${height}px`);
+    };
+
+    if (coverImage && coverImage.complete) {
+      setCoverHeight();
+    } else if (coverImage) {
+      coverImage.addEventListener("load", setCoverHeight);
+    }
+
+    window.addEventListener("resize", setCoverHeight);
+  </script>
+</html>

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Milan Birthday//Invite//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:milans-10th-20260526T150000@milan-invite
+DTSTAMP:20260513T000000Z
+SUMMARY:День рождения Милана — 10 лет
+DTSTART;TZID=Europe/Moscow:20260526T150000
+DTEND;TZID=Europe/Moscow:20260526T183000
+LOCATION:MIKS Karting, Москва, ул. Шарикоподшипниковская, 13, стр. 41
+DESCRIPTION:Праздник в картинг-клубе. Сбор гостей и гонка.
+END:VEVENT
+END:VCALENDAR
