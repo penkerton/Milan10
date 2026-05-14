@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Милану 10 — День рождения на скорости</title>
+    <title>Милану 10 — День рождения на льду и скорости</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,7 +24,10 @@
             приглашает друзей отпраздновать его день рождения.
           </p>
           <div class="hero__cta">
-            <a class="btn btn--ghost" href="milan-birthday.ics" download>
+            <a
+              class="btn btn--ghost"
+              href="webcal://penkerton.github.io/Milan10/milan-birthday.ics"
+            >
               Добавить в календарь
             </a>
             <p class="hero__note">26 мая, 15:00–18:30 — картинг-клуб</p>
@@ -112,7 +115,8 @@
           <div class="location__header">
             <h2>Как добраться</h2>
             <p>
-              Вход через КПП, назовите кодовое слово: «Я в картинг-центр МИКС».
+              Картинг находится в здании напротив. Вход через КПП, назовите кодовое
+              слово: «Я в картинг-центр МИКС».
             </p>
             <div class="location__map">
               <iframe
@@ -122,14 +126,6 @@
                 loading="lazy"
                 allowfullscreen
               ></iframe>
-              <div class="location__actions">
-                <a
-                  class="btn"
-                  href="yandexnavi://build_route_on_map?lat_to=55.719751&lon_to=37.683758"
-                >
-                  Открыть в навигаторе
-                </a>
-              </div>
             </div>
           </div>
           <div class="location__grid">
@@ -188,5 +184,83 @@
     }
 
     window.addEventListener("resize", setCoverHeight);
+
+    let confettiFired = false;
+    const confettiColors = ["#e63946", "#ffbe0b", "#3a86ff", "#06d6a0", "#ffffff"];
+
+    const fireConfetti = () => {
+      if (confettiFired) return;
+      confettiFired = true;
+
+      const container = document.createElement("div");
+      container.className = "confetti";
+      document.body.appendChild(container);
+
+      const bursts = ["left", "right"];
+      const piecesPerBurst = 90;
+
+      bursts.forEach((origin) => {
+        for (let i = 0; i < piecesPerBurst; i += 1) {
+          const piece = document.createElement("span");
+          const variantRoll = Math.random();
+          piece.className = "confetti__piece";
+          if (variantRoll > 0.7) {
+            piece.classList.add("confetti__piece--ribbon");
+          } else if (variantRoll > 0.45) {
+            piece.classList.add("confetti__piece--curl");
+          }
+
+          const angle = Math.random() * 90 + 40;
+          const distance = Math.random() * 420 + 280;
+          const radians = (angle * Math.PI) / 180;
+          const dx = Math.cos(radians) * distance * (origin === "left" ? 1 : -1);
+          const dy = Math.sin(radians) * distance;
+          const delay = (Math.random() * 0.35).toFixed(2);
+          const duration = (2.1 + Math.random() * 1.2).toFixed(2);
+
+          if (origin === "left") {
+            piece.style.left = "5%";
+          } else {
+            piece.style.right = "5%";
+          }
+          const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+          piece.style.backgroundColor = color;
+          piece.style.color = color;
+          piece.style.setProperty("--dx", `${dx}px`);
+          piece.style.setProperty("--dy", `${dy}px`);
+          piece.style.animationDelay = `${delay}s`;
+          piece.style.animationDuration = `${duration}s`;
+
+          container.appendChild(piece);
+        }
+      });
+
+      setTimeout(() => container.remove(), 4000);
+    };
+
+    const onScroll = () => {
+      if (confettiFired) return;
+      const scrollBottom = window.scrollY + window.innerHeight;
+      const pageHeight = document.documentElement.scrollHeight;
+      if (scrollBottom >= pageHeight - 24) {
+        fireConfetti();
+      }
+    };
+
+    const footer = document.querySelector(".footer");
+    if ("IntersectionObserver" in window && footer) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            fireConfetti();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px -10% 0px" }
+      );
+      observer.observe(footer);
+    } else {
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
   </script>
 </html>
