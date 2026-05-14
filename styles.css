@@ -17,11 +17,12 @@
 
 body {
   font-family: "Unbounded", sans-serif;
-  background: radial-gradient(circle at top, #ffffff 0%, #ecf3ff 35%, #d7e5ff 100%);
+  background: #f4f5f7;
   background-attachment: fixed;
   color: var(--ink);
   min-height: 100vh;
 }
+
 
 .cover {
   position: fixed;
@@ -48,27 +49,6 @@ body {
   z-index: 1;
 }
 
-.page::before,
-.page::after {
-  content: "";
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(58, 134, 255, 0.32), transparent 70%);
-  z-index: -1;
-}
-
-.page::before {
-  top: -120px;
-  left: -80px;
-}
-
-.page::after {
-  bottom: -120px;
-  right: -60px;
-  background: radial-gradient(circle, rgba(230, 57, 70, 0.25), transparent 70%);
-}
 
 .hero {
   display: grid;
@@ -84,11 +64,7 @@ body {
 }
 
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255, 190, 11, 0.18), transparent 55%);
-  pointer-events: none;
+  content: none;
 }
 
 .hero__content {
@@ -124,6 +100,7 @@ body {
   align-items: center;
   gap: 16px;
 }
+
 
 .hero__note {
   font-size: 14px;
@@ -220,7 +197,7 @@ body {
 
 .timeline {
   margin-top: 48px;
-  background: linear-gradient(110deg, rgba(58, 134, 255, 0.14), rgba(255, 190, 11, 0.2));
+  background: rgba(246, 248, 252, 0.9);
   border-radius: 28px;
   padding: 40px;
 }
@@ -457,6 +434,76 @@ body {
   text-align: center;
   font-size: 14px;
   color: var(--steel);
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.confetti__piece {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 20px;
+  border-radius: 2px;
+  opacity: 0.95;
+  transform-origin: center;
+  animation: confetti-burst 2.8s ease-out forwards;
+}
+
+.confetti__piece--ribbon {
+  width: 6px;
+  height: 34px;
+  border-radius: 999px;
+  animation-name: confetti-ribbon;
+}
+
+.confetti__piece--curl {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: transparent;
+  animation-name: confetti-curl;
+}
+
+@keyframes confetti-burst {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--dx), calc(var(--dy) * -1), 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-ribbon {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) skewY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--dx), calc(var(--dy) * -1), 0) rotate(720deg)
+      skewY(12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-curl {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.7);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--dx), calc(var(--dy) * -1), 0) rotate(900deg)
+      scale(1.1);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 720px) {
